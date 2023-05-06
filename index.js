@@ -4,13 +4,14 @@ require('dotenv').config()
 const connection = require("./configs/db");
 const userRouter = require("./routes/user.routes");
 const bookRouter = require("./routes/books.routes");
+const orderRouter = require("./routes/order.routes");
 const app = express();
 
 
 app.use(express.json());
 app.use("/user",userRouter)
 app.use("/books",bookRouter);
-app.use("",orderRouter)
+app.use("/",orderRouter)
 
 app.listen(process.env.port,async()=>{
     try{
