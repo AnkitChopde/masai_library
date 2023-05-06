@@ -64,7 +64,7 @@ bookRouter.get("/:id",async(req,res)=>{
 
 // post request of adding data to database
 
-bookRouter.post("/",verifyToken,async(req,res)=>{
+bookRouter.post("/",async(req,res)=>{
 
     try{
         const book = await BookModel.insertMany(req.body);
@@ -82,7 +82,7 @@ bookRouter.post("/",verifyToken,async(req,res)=>{
 
 // patch request for updating the book data
 
-bookRouter.patch("/:id",verifyToken,async(req,res)=>{
+bookRouter.patch("/:id",async(req,res)=>{
    
     try{
         await BookModel.findByIdAndUpdate(req.params.id,req.body);
@@ -101,7 +101,7 @@ bookRouter.patch("/:id",verifyToken,async(req,res)=>{
 
 // delete request for deleting the particular book data
 
-bookRouter.delete("/:id",verifyToken,async(req,res)=>{
+bookRouter.delete("/:id",async(req,res)=>{
    
      try{
          await BookModel.findByIdAndDelete(req.params.id);
